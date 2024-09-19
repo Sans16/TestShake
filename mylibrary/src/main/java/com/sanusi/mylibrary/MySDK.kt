@@ -8,16 +8,16 @@ class MySDK private constructor(private val context: Context) {
     private var shakeDetector: ShakeDetector? = null
     private var isShakeEnabled = false
 
-//    companion object {
-//        var instance: MySDK? = null
-//
-//        fun initialize(context: Context): MySDK {
-//            if (instance == null) {
-//                instance = MySDK(context)
-//            }
-//            return instance!!
-//        }
-//    }
+    companion object {
+        var instance: MySDK? = null
+
+        fun initialize(context: Context): MySDK {
+            if (instance == null) {
+                instance = MySDK(context)
+            }
+            return instance!!
+        }
+    }
 
     fun enableShakeGesture(onAppShake: (Boolean) -> Unit) {
         // Implement your logic for enabling gestures
