@@ -12,20 +12,20 @@ class ShakeDetector(
     private var onShake: () -> Unit
 ) : SensorEventListener {
 
-   // private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+   private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val shakeThreshold = 8.0f
     private var lastShakeTime = 0L
 
     fun start() {
-//        sensorManager.registerListener(
-//            this,
-//            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-//            SensorManager.SENSOR_DELAY_UI
-//        )
+        sensorManager.registerListener(
+            this,
+            sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+            SensorManager.SENSOR_DELAY_UI
+        )
     }
 
     fun stop() {
-       // sensorManager.unregisterListener(this)
+        sensorManager.unregisterListener(this)
     }
 
     override fun onSensorChanged(event: SensorEvent) {
