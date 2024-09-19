@@ -42,17 +42,28 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+//
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create<MavenPublication>("release") {
+//                //from(components["release"])
+//                groupId = "com.github.sans16"
+//                artifactId = "myLibrary"
+//                version = "1.0.0"
+//            }
+//        }
+//
+//    }
+//}
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                //from(components["release"])
-                groupId = "com.github.sans16"
-                artifactId = "myLibrary"
-                version = "1.0.0"
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["release"])
             }
         }
-
     }
+
 }
