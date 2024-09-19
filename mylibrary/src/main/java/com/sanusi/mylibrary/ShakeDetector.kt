@@ -29,21 +29,21 @@ class ShakeDetector(
     }
 
     override fun onSensorChanged(event: SensorEvent) {
-//        val x = event.values[0]
-//                val y = event.values[1]
-//                val z = event.values[2]
-//
-//                val gForce = sqrt(x * x + y * y + z * z) / SensorManager.GRAVITY_EARTH
-//
-//                if (gForce > shakeThreshold) {
-//                    val currentTime = System.currentTimeMillis()
-//
-//                    // Only react if the shake happens after 500ms to avoid multiple triggers
-//                    if (currentTime - lastShakeTime > 500) {
-//                        lastShakeTime = currentTime
-//                        onShake()
-//                    }
-//                }
+        val x = event.values[0]
+                val y = event.values[1]
+                val z = event.values[2]
+
+                val gForce = sqrt(x * x + y * y + z * z) / SensorManager.GRAVITY_EARTH
+
+                if (gForce > shakeThreshold) {
+                    val currentTime = System.currentTimeMillis()
+
+                    // Only react if the shake happens after 500ms to avoid multiple triggers
+                    if (currentTime - lastShakeTime > 500) {
+                        lastShakeTime = currentTime
+                        onShake()
+                    }
+                }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
